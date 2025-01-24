@@ -12,7 +12,7 @@ namespace Infrastructure.Repositories.Base
 {
 	public class Repository<T> : IRepository<T> where T : Entity
 	{
-		private readonly MovieContext _movieContext;
+		protected readonly MovieContext _movieContext;
 
 		public Repository(MovieContext movieContext) {
 			_movieContext = movieContext;
