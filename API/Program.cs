@@ -6,6 +6,7 @@ using Infrastructure.Repositories.Base;
 using Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using System;
+using API.Middlewares;
 
 namespace WebAPI
 {
@@ -41,6 +42,7 @@ namespace WebAPI
 
 			app.UseHttpsRedirection();
 			app.UseAuthorization();
+			app.UseMiddleware<ExceptionMiddleware>();
 			app.MapControllers();
 			app.Run();
 		}
