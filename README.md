@@ -1,6 +1,6 @@
 # Clean Architecture
 
-Clean architecture solution using .net core 
+Clean architecture solution using .net core and applying CQRS (Command Query Responsability Segregation) pattern. 
 
 ### Projects
 
