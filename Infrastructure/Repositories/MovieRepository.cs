@@ -20,7 +20,7 @@ namespace Infrastructure.Repositories
 		public async Task<IEnumerable<Movie>> GetMoviesByDirectorName(string directorName)
 		{
 			//_movieContext is inherir from Repository<T>
-			return await _movieContext.Movies.Where(m => m.Name.Contains(directorName)).ToListAsync();
+			return await _movieContext.Movies.Where(m => m.DirectorName.Contains(directorName)).ToListAsync();
 		}
 	}
 }
