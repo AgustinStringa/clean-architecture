@@ -17,6 +17,7 @@ namespace WebAPI
 
 			builder.Services.AddAuthorization();
 			builder.Services.AddEndpointsApiExplorer();
+			builder.Services.Configure<RouteOptions>(opt => opt.LowercaseUrls = true);
 			builder.Services.AddSwaggerGen();
 			builder.Services.AddControllers();
 			builder.Services.AddDbContext<MovieContext>(ctx => ctx.UseSqlServer(
