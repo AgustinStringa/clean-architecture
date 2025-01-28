@@ -15,6 +15,7 @@ namespace Application.Mappers
 		public MovieMapperProfile() {
 			CreateMap<Movie, MovieResponse>().ReverseMap();
 			CreateMap<CreateMovieCommand, Movie>().ReverseMap();
+			CreateMap<UpdateMovieCommand, Movie>().ReverseMap();
 		}
 	}
 }

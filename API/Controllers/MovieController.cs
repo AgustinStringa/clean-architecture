@@ -32,10 +32,37 @@ namespace API.Controllers
 			return Ok(result);
 		}
 
+		[HttpGet("{id}")]
+		[ProducesResponseType(200)]
+		public async Task<ActionResult<IEnumerable<MovieResponse>>> GetOneMovie([FromRoute] int id)
+		{
+			var query = new GetOneMovieQuery(id);
+			var result = await Mediator.Send(query);
+			return Ok(result);
+		}
+
 		[HttpPost]
 		[ProducesResponseType(201)]
 		public async Task<ActionResult<MovieResponse>> CreateMovie([FromBody] CreateMovieCommand command)
 		{
+			var result = await Mediator.Send(command);
+			return Ok(result);
+		}
+
+		[HttpDelete("{id}")]
+		[ProducesResponseType(200)]
+		public async Task<ActionResult<IEnumerable<MovieResponse>>> DeleteMovie([FromRoute] int id)
+		{
+			var query = new DeleteMovieCommand(id);
+			var result = await Mediator.Send(query);
+			return Ok(result);
+		}
+
+		[HttpPut("{id}")]
+		[ProducesResponseType(200)]
+		public async Task<ActionResult<IEnumerable<MovieResponse>>> UpdateMovie([FromBody] UpdateMovieCommand command, [FromRoute] int id)
+		{
+			if (command.Id != id) return BadRequest(new { Message = "The ID in the URL does not match the ID in the body." });
 			var result = await Mediator.Send(command);
 			return Ok(result);
 		}
