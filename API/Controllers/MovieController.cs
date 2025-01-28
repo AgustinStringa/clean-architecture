@@ -16,7 +16,16 @@ namespace API.Controllers
 
 		[HttpGet]
 		[ProducesResponseType(200)]
-		public async Task<ActionResult<IEnumerable<MovieResponse>>> GetMoviesByDirectorName(string directorName)
+		public async Task<ActionResult<IEnumerable<MovieResponse>>> GetAllMovies()
+		{
+			var query = new GetAllMoviesQuery();
+			var result = await Mediator.Send(query);
+			return Ok(result);
+		}
+
+		[HttpGet("by-director")]
+		[ProducesResponseType(200)]
+		public async Task<ActionResult<IEnumerable<MovieResponse>>> GetMoviesByDirectorName([FromQuery] string directorName)
 		{
 			var query = new GetMoviesByDirectorNameQuery(directorName);
 			var result = await Mediator.Send(query);
