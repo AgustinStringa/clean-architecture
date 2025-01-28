@@ -12,9 +12,9 @@ namespace Application.Commands
 	{
 		public string Name { get; set; }
 		public string DirectorName { get; set; }
-		public string ReleaseYear { get; set; }
+		public int ReleaseYear { get; set; }
 
-		public CreateMovieCommand(string name, string directorName, string releaseYear) { 
+		public CreateMovieCommand(string name, string directorName, int releaseYear) { 
 			Name = name;
 			DirectorName = directorName;
 			ReleaseYear = releaseYear;

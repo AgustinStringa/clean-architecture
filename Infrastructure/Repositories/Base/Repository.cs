@@ -12,40 +12,40 @@ namespace Infrastructure.Repositories.Base
 {
 	public class Repository<T> : IRepository<T> where T : Entity
 	{
-		protected readonly MovieContext _movieContext;
+		protected readonly MovieContext MovieContext;
 
 		public Repository(MovieContext movieContext) {
-			_movieContext = movieContext;
+			MovieContext = movieContext;
 		}
 
 		async Task<T> IRepository<T>.AddAsync(T entity)
 		{
-			await _movieContext.Set<T>().AddAsync(entity);
-			await _movieContext.SaveChangesAsync();
+			await MovieContext.Set<T>().AddAsync(entity);
+			await MovieContext.SaveChangesAsync();
 			return entity;
 		}
 
 		async Task IRepository<T>.DeleteAsync(T entity)
 		{
-			_movieContext.Set<T>().Remove(entity);
-			await _movieContext.SaveChangesAsync();
+			MovieContext.Set<T>().Remove(entity);
+			await MovieContext.SaveChangesAsync();
 		}
 
 		async Task<IReadOnlyList<T>> IRepository<T>.GetAllAsync()
 		{
-			return await _movieContext.Set<T>().ToListAsync();
+			return await MovieContext.Set<T>().ToListAsync();
 		}
 
 		async Task<T> IRepository<T>.GetByIdAsync(int id)
 		{
-			return await _movieContext.Set<T>().FindAsync(id);
+			return await MovieContext.Set<T>().FindAsync(id);
 			
 		}
 
 		async Task IRepository<T>.UpdateAsync(T entity)
 		{
-			_movieContext.Entry(entity).State = EntityState.Modified;
-			await _movieContext.SaveChangesAsync();
+			MovieContext.Entry(entity).State = EntityState.Modified;
+			await MovieContext.SaveChangesAsync();
 		}
 	}
 }

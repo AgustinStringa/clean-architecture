@@ -15,10 +15,10 @@ namespace Application.Handlers
 	public class CreateMovieCommandHandler : IRequestHandler<CreateMovieCommand, MovieResponse>
 	{
 
-		private readonly IMovieRepository _movieRepository;
+		private readonly IMovieRepository MovieRepository;
         public CreateMovieCommandHandler(IMovieRepository movieRepository)
         {
-            _movieRepository = movieRepository;
+            MovieRepository = movieRepository;
         }
         public async Task<MovieResponse> Handle(CreateMovieCommand request, CancellationToken cancellationToken)
 		{
@@ -26,7 +26,7 @@ namespace Application.Handlers
 			if (movieEntity is null) {
 				throw new ApplicationException("There is an issue with mapping");
 			}
-			var newMovie = await _movieRepository.AddAsync(movieEntity);
+			var newMovie = await MovieRepository.AddAsync(movieEntity);
 			var movieResponse = MovieMapper.Mapper.Map<MovieResponse>(newMovie);
 			return movieResponse;
 		}

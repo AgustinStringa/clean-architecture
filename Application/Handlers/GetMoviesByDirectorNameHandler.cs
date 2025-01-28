@@ -14,15 +14,15 @@ namespace Application.Handlers
 {
 	public class GetMoviesByDirectorNameHandler : IRequestHandler<GetMoviesByDirectorNameQuery, IEnumerable<MovieResponse>>
 	{
-		private readonly IMovieRepository _movieRepository;
+		private readonly IMovieRepository MovieRepository;
 
 		public GetMoviesByDirectorNameHandler(IMovieRepository movieRepository)
         {
-			_movieRepository = movieRepository;   
+			MovieRepository = movieRepository;   
         }
         public async Task<IEnumerable<MovieResponse>> Handle(GetMoviesByDirectorNameQuery request, CancellationToken cancellationToken)
 		{
-			var movieEntities = await _movieRepository.GetMoviesByDirectorName(request.DirectorName);
+			var movieEntities = await MovieRepository.GetMoviesByDirectorName(request.DirectorName);
 			if (movieEntities is null) { 
 				throw new ApplicationException("There is an issue with the movies");
 			}
