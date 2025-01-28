@@ -37,14 +37,14 @@ namespace Infrastructure.Data
 		private static IEnumerable<Movie> GetMovies() {
 			return new List<Movie>()
 			{
-				new Movie {Name = "Avatar", DirectorName = "James Cameron", ReleaseYear = "2009"},
-				new Movie {Name = "Titanic", DirectorName = "James Cameron", ReleaseYear = "1997"},
-				new Movie {Name = "Die Another Day", DirectorName = "Lee Tamahori", ReleaseYear = "2002"},
+				new Movie {Name = "Avatar", DirectorName = "James Cameron", ReleaseYear = 2009},
+				new Movie {Name = "Titanic", DirectorName = "James Cameron", ReleaseYear = 1997},
+				new Movie {Name = "Die Another Day", DirectorName = "Lee Tamahori", ReleaseYear = 2002},
 				new Movie
 				{
 					Name = "Godzilla",
 					DirectorName = "Gareth Edwards",
-					ReleaseYear = "2014"
+					ReleaseYear = 2014
 				}
 			};
 		}

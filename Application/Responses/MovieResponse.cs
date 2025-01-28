@@ -11,6 +11,6 @@ namespace Application.Responses
 		public int Id { get; set; }
 		public string Name { get; set; }
 		public string DirectorName { get; set; }
-		public string ReleaseYear { get; set; }
+		public int ReleaseYear { get; set; }
 	}
 }
