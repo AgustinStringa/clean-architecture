@@ -16,6 +16,9 @@ namespace Application.Mappers
 			CreateMap<Movie, MovieResponse>().ReverseMap();
 			CreateMap<CreateMovieCommand, Movie>().ReverseMap();
 			CreateMap<UpdateMovieCommand, Movie>().ReverseMap();
+			CreateMap<Genre, GenreResponse>().ReverseMap();
+			CreateMap<CreateGenreCommand, Genre>().ReverseMap();
+			CreateMap<UpdateGenreCommand, Genre>().ReverseMap();
 		}
 	}
 }
