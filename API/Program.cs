@@ -7,6 +7,10 @@ using Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using System;
 using API.Middlewares;
+using FluentValidation;
+using Application.Validators;
+using FluentValidation.AspNetCore;
+using MediatR;
 
 namespace WebAPI
 {
@@ -21,6 +25,9 @@ namespace WebAPI
 			builder.Services.Configure<RouteOptions>(opt => opt.LowercaseUrls = true);
 			builder.Services.AddSwaggerGen();
 			builder.Services.AddControllers();
+			builder.Services.AddFluentValidationAutoValidation(
+				cfg => { cfg.DisableDataAnnotationsValidation = true; }
+				).AddFluentValidationClientsideAdapters();
 			builder.Services.AddDbContext<MovieContext>(ctx => ctx.UseSqlServer(
 				builder.Configuration.GetConnectionString("MovieConnection")
 				), ServiceLifetime.Singleton);
@@ -30,6 +37,9 @@ namespace WebAPI
 			builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(AppDomain.CurrentDomain.GetAssemblies()));
 			builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 			builder.Services.AddTransient<IMovieRepository, MovieRepository>();
+
+			builder.Services.AddValidatorsFromAssemblies(AppDomain.CurrentDomain.GetAssemblies());
+			builder.Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
 
 			var app = builder.Build();
 
