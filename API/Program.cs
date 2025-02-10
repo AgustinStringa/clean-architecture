@@ -11,6 +11,7 @@ using FluentValidation;
 using Application.Validators;
 using FluentValidation.AspNetCore;
 using MediatR;
+using System.Text.Json.Serialization;
 
 namespace WebAPI
 {
@@ -24,7 +25,12 @@ namespace WebAPI
 			builder.Services.AddEndpointsApiExplorer();
 			builder.Services.Configure<RouteOptions>(opt => opt.LowercaseUrls = true);
 			builder.Services.AddSwaggerGen();
-			builder.Services.AddControllers();
+			builder.Services.AddControllers()
+						.AddJsonOptions(options =>
+						{
+							options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+						});
+			;
 			builder.Services.AddFluentValidationAutoValidation(
 				cfg => { cfg.DisableDataAnnotationsValidation = true; }
 				).AddFluentValidationClientsideAdapters();
