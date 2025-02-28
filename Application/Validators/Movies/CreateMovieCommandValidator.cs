@@ -1,4 +1,4 @@
-﻿using Application.Commands;
+﻿using Application.Commands.Movies;
 using Core.Entities;
 using FluentValidation;
 using System;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Validators
+namespace Application.Validators.Movies
 {
 	public class CreateMovieCommandValidator : AbstractValidator<CreateMovieCommand>
 	{

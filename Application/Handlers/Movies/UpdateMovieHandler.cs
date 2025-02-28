@@ -1,4 +1,4 @@
-﻿using Application.Commands;
+﻿using Application.Commands.Movies;
 using Application.Mappers;
 using Application.Responses;
 using Core.Entities;
@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Handlers
+namespace Application.Handlers.Movies
 {
 	public class UpdateMovieHandler : IRequestHandler<UpdateMovieCommand, MovieResponse>
 	{

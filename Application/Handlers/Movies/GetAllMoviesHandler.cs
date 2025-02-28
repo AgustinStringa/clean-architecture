@@ -1,5 +1,5 @@
 ﻿using Application.Mappers;
-using Application.Queries;
+using Application.Queries.Movies;
 using Application.Responses;
 using Core.Repositories;
 using MediatR;
@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Handlers
+namespace Application.Handlers.Movies
 {
 	public class GetAllMoviesHandler : IRequestHandler<GetAllMoviesQuery, IEnumerable<MovieResponse>>
 	{
@@ -21,7 +21,7 @@ namespace Application.Handlers
 		}
 		public async Task<IEnumerable<MovieResponse>> Handle(GetAllMoviesQuery request, CancellationToken cancellationToken)
 		{
-			var movies = await MovieRepository.GetAllAsync();
+			var movies = await MovieRepository.GetMoviesWithGenres();
 			var response = MovieMapper.Mapper.Map<IEnumerable<MovieResponse>>(movies);
 			return response;
 		}

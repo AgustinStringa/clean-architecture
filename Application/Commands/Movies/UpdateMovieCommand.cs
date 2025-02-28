@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Commands
+namespace Application.Commands.Movies
 {
 	public class UpdateMovieCommand : IRequest<MovieResponse>
 	{

@@ -6,16 +6,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Commands
+namespace Application.Commands.Movies
 {
-	public class UpdateGenreCommand : IRequest<GenreResponse>
+	public class DeleteMovieCommand : IRequest<MovieResponse>
 	{
-		public string Name { get; set; }
 		public int Id { get; set; }
-		
-		public UpdateGenreCommand(string name, int id)
+		public DeleteMovieCommand(int id)
 		{
-			Name = name;
 			Id = id;
 		}
 	}

@@ -6,13 +6,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Commands
+namespace Application.Queries.Genres
 {
-	public class DeleteGenreCommand : IRequest<GenreResponse>
+	public class GetOneGenreQuery : IRequest<GenreResponse>
 	{
 		public int Id { get; set; }
 
-		public DeleteGenreCommand(int id)
+		public GetOneGenreQuery(int id)
 		{
 			Id = id;
 		}

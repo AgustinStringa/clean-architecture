@@ -6,15 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Queries
+namespace Application.Queries.Genres
 {
-	public class GetOneGenreQuery : IRequest<GenreResponse>
+	public class GetAllGenresQuery : IRequest<IEnumerable<GenreResponse>>
 	{
-		public int Id { get; set; }
-
-		public GetOneGenreQuery(int id)
-		{
-			Id = id;
-		}
+		public GetAllGenresQuery() { }
 	}
 }

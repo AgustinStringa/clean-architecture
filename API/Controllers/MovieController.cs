@@ -1,5 +1,5 @@
-﻿using Application.Commands;
-using Application.Queries;
+﻿using Application.Commands.Movies;
+using Application.Queries.Movies;
 using Application.Responses;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;

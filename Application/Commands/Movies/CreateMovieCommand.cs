@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Commands
+namespace Application.Commands.Movies
 {
 	public class CreateMovieCommand : IRequest<MovieResponse>
 	{
@@ -14,7 +14,8 @@ namespace Application.Commands
 		public string DirectorName { get; set; }
 		public int ReleaseYear { get; set; }
 
-		public CreateMovieCommand(string name, string directorName, int releaseYear) { 
+		public CreateMovieCommand(string name, string directorName, int releaseYear)
+		{
 			Name = name;
 			DirectorName = directorName;
 			ReleaseYear = releaseYear;

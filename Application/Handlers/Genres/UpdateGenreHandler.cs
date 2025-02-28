@@ -1,4 +1,4 @@
-﻿using Application.Commands;
+﻿using Application.Commands.Genres;
 using Application.Mappers;
 using Application.Responses;
 using Core.Repositories;
@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Handlers
+namespace Application.Handlers.Genres
 {
 	public class UpdateGenreHandler : IRequestHandler<UpdateGenreCommand, GenreResponse>
 	{

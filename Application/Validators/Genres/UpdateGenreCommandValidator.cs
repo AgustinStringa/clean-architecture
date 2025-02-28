@@ -1,4 +1,4 @@
-﻿using Application.Commands;
+﻿using Application.Commands.Genres;
 using FluentValidation;
 using System;
 using System.Collections.Generic;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Validators
+namespace Application.Validators.Genres
 {
 	public class UpdateGenreCommandValidator : AbstractValidator<UpdateGenreCommand>
 	{

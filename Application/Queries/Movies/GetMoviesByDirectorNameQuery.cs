@@ -7,15 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Queries
+namespace Application.Queries.Movies
 {
 	public class GetMoviesByDirectorNameQuery : IRequest<IEnumerable<MovieResponse>>
 	{
-        public string DirectorName { get; set; }
+		public string DirectorName { get; set; }
 
-        public GetMoviesByDirectorNameQuery(string directorName)
-        {
-            DirectorName = directorName;
-        }
-    }
+		public GetMoviesByDirectorNameQuery(string directorName)
+		{
+			DirectorName = directorName;
+		}
+	}
 }
