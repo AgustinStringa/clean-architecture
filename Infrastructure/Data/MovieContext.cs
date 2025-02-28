@@ -12,6 +12,8 @@ namespace Infrastructure.Data
 	{
 		public DbSet<Movie> Movies { get; set; }
 		public DbSet<Genre> Genres { get; set; }
+		public DbSet<Actor> Actors { get; set; }
+		public DbSet<Artist> Artists { get; set; }
 		public MovieContext(DbContextOptions<MovieContext> options) : base(options) { }
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -24,6 +26,8 @@ namespace Infrastructure.Data
 					l => l.HasOne<Genre>().WithMany().HasForeignKey("id_genre"),
 					r => r.HasOne<Movie>().WithMany().HasForeignKey("id_movie")
 				);
+
+			modelBuilder.Entity<Actor>().ToTable("actors");
 		}
 	}
 }

@@ -1,4 +1,6 @@
-﻿using Application.Commands;
+﻿using Application.Commands.Actors;
+using Application.Commands.Genres;
+using Application.Commands.Movies;
 using Application.Responses;
 using AutoMapper;
 using Core.Entities;
@@ -12,13 +14,16 @@ namespace Application.Mappers
 {
 	public class MovieMapperProfile : Profile
 	{
-		public MovieMapperProfile() {
+		public MovieMapperProfile()
+		{
 			CreateMap<Movie, MovieResponse>().ReverseMap();
 			CreateMap<CreateMovieCommand, Movie>().ReverseMap();
 			CreateMap<UpdateMovieCommand, Movie>().ReverseMap();
 			CreateMap<Genre, GenreResponse>().ReverseMap();
 			CreateMap<CreateGenreCommand, Genre>().ReverseMap();
 			CreateMap<UpdateGenreCommand, Genre>().ReverseMap();
+			CreateMap<ActorResponse, Actor>().ReverseMap();
+			CreateMap<CreateActorCommand, Actor>().ReverseMap();
 		}
 	}
 }

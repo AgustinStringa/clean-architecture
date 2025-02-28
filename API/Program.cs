@@ -44,6 +44,7 @@ namespace WebAPI
 			builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 			builder.Services.AddTransient<IMovieRepository, MovieRepository>();
 			builder.Services.AddTransient<IGenreRepository, GenreRepository>();
+			builder.Services.AddTransient<IActorRepository, ActorRepository>();
 
 			builder.Services.AddValidatorsFromAssemblies(AppDomain.CurrentDomain.GetAssemblies());
 			builder.Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
